@@ -19,7 +19,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   
   input = createInput();
-  input.position(windowWidth/2-150, windowHeight-400);
+  input.position(windowWidth/2-150, windowHeight-100);
   
   button = createButton('Guess!');
   button.position(input.x + input.width, input.y);
@@ -27,7 +27,7 @@ function setup() {
   
   
   teams = createInput();
-  teams.position(windowWidth/2-500, windowHeight-400)
+  teams.position(windowWidth/2-500, windowHeight-100)
   
   teamsButton = createButton('Create teams');
   teamsButton.position(teams.x + teams.width, teams.y);
