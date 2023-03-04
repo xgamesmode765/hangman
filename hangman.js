@@ -79,22 +79,22 @@ function draw() {
     textSize(64);
     fill(0,255,0);
     stroke(0,255,0);
-    text("Correct", windowWidth/2, 150);
+    text("Correct", windowWidth/2, 50);
   } else if (guessFlag == false) {
     textSize(64);
     fill(255,0,0);
     stroke(255,0,0);
-    text("Wrong", windowWidth/2, 150);
+    text("Wrong", windowWidth/2, 50);
   }
   
   
   var x = 50;
-  var y = windowHeight/2 - 200
+  var y = windowHeight/2 - 350
   var x2 = 120;
-  var y2 = windowHeight/2 - 200
+  var y2 = windowHeight/2 - 350
   
   var index = 0;
-  for (var i = 0; i < tokens.length/2 - 4; i ++) {
+  for (var i = 0; i < tokens.length/3-5; i ++) {
     stroke(0);
     fill(0);
     textSize(16);
@@ -112,13 +112,29 @@ function draw() {
   y += 200
   y2 += 200
   
-  for (var j = 0; j < tokens.length/2-1; j ++) {
+  for (var j = 0; j < tokens.length/3 + 5 - 3; j ++) {
     text(correctGuesses[index], x + ((x2-x)/2)-6, y - 15);
     line(x, y, x2-60, y2);
     x += 25;
     x2+= 25;
     index++;
   }
+  
+  x = 50
+  x2= 120
+  y += 200
+  y2 += 200
+  
+  for (var k = 0; k < tokens.length/3 + 3; k ++) {
+    text(correctGuesses[index], x + ((x2-x)/2)-6, y - 15);
+    line(x, y, x2-60, y2);
+    x += 25;
+    x2+= 25;
+    index++;
+  }
+  
+  
+  
   
   let offset = 0;
   for (var c = 1; c <= numOfTeams; c++) {
