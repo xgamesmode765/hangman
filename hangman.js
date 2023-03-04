@@ -73,7 +73,7 @@ function checkGuess() {
 
 
 function draw() {
-  background(0);
+  background(204, 255, 255 );
   
   if (guessFlag) {
     textSize(64);
@@ -95,8 +95,8 @@ function draw() {
   
   var index = 0;
   for (var i = 0; i < tokens.length/2 - 4; i ++) {
-    stroke(255);
-    fill(255);
+    stroke(0);
+    fill(0);
     textSize(16);
     textAlign(CENTER, CENTER);
     text(correctGuesses[index], x + ((x2-x)/2)-6, y - 15);
@@ -137,8 +137,8 @@ function draw() {
     textSize(32);
     text(teamScores[c], 75+offset, windowHeight-220);
     textSize(24);
-    stroke(255);
-    fill(255);
+    stroke(0);
+    fill(0);
     text(c, 75+offset, windowHeight-175);
     offset += 70;
   }
