@@ -8,7 +8,7 @@ let teamScores = {};
 let selectedTeam = 1;
 
 
-let phrase = "1 Corinthians 15:58 Therefore my beloved brethren be steadfast immovable always abounding in the work of the Lord knowing that your labor is not in vain in the Lord"
+let phrase = "1  C o r i n t h i a n s  15:58  T h e r e f o r e  m y  b e l o v e d  b r e t h r e n  b e  s t e a d f a s t  i m m o v a b l e  a l w a y s  a b o u n d i n g  i n  t h e  w o r k  o f  t h e  L o r d  k n o w i n g  t h a t  y o u r  l a b o r  i s  n o t  i n  v a i n  i n  t h e  L o r d"
 phrase = phrase.toLowerCase();
 let tokens = phrase.split(" ");
 let correctGuesses = Array.apply(null, Array(tokens.length - 1)).map(function () {});
@@ -52,19 +52,14 @@ function checkGuess() {
   var guess = input.value();
   guess.toLowerCase();
   console.log(guess);
+  guessFlag = false;
   
   for (let i = 0; i < tokens.length; i++) {
     if (tokens[i] == guess && correctGuesses[i] == null) {
       correctGuesses[i] = guess;
       guessFlag = true;
       teamScores[selectedTeam] += 1;
-      if (selectedTeam >= numOfTeams) {
-        selectedTeam = 1;
-      } else {
-        selectedTeam += 1;
-      }
       console.log(i)
-      return i;
     }
   }
   
@@ -73,8 +68,6 @@ function checkGuess() {
   } else {
     selectedTeam += 1;
   }
-  guessFlag = false;
-  return false;
 }
 
 
@@ -101,15 +94,15 @@ function draw() {
   var y2 = windowHeight/2 - 200
   
   var index = 0;
-  for (var i = 0; i < tokens.length/2; i ++) {
+  for (var i = 0; i < tokens.length/2 - 4; i ++) {
     stroke(255);
     fill(255);
     textSize(16);
     textAlign(CENTER, CENTER);
-    text(correctGuesses[index], x + ((x2-x)/2), y - 15);
-    line(x, y, x2, y2);
-    x += tokens[index].length + 80;
-    x2+= tokens[index].length + 80;
+    text(correctGuesses[index], x + ((x2-x)/2)-6, y - 15);
+    line(x, y, x2-60, y2);
+    x += 25;
+    x2+= 25;
     index++;
   }
   
@@ -120,10 +113,10 @@ function draw() {
   y2 += 200
   
   for (var j = 0; j < tokens.length/2-1; j ++) {
-    text(correctGuesses[index], x + ((x2-x)/2), y - 15);
-    line(x, y, x2, y2);
-    x += tokens[index].length + 80;
-    x2+= tokens[index].length + 80;
+    text(correctGuesses[index], x + ((x2-x)/2)-6, y - 15);
+    line(x, y, x2-60, y2);
+    x += 25;
+    x2+= 25;
     index++;
   }
   
