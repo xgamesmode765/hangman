@@ -8,7 +8,7 @@ let teamScores = {};
 let selectedTeam = 1;
 
 
-let phrase = "1  C o r i n t h i a n s  15:58  T h e r e f o r e  m y  b e l o v e d  b r e t h r e n  b e  s t e a d f a s t  i m m o v a b l e  a l w a y s  a b o u n d i n g  i n  t h e  w o r k  o f  t h e  L o r d  k n o w i n g  t h a t  y o u r  l a b o r  i s  n o t  i n  v a i n  i n  t h e  L o r d"
+let phrase = "T h e r e f o r e  m y  b e l o v e d  b r e t h r e n  b e  s t e a d f a s t  i m m o v a b l e  a l w a y s  a b o u n d i n g  i n  t h e  w o r k  o f  t h e  L o r d  k n o w i n g  t h a t  y o u r  l a b o r  i s  n o t  i n  v a i n  i n  t h e  L o r d"
 phrase = phrase.toLowerCase();
 let tokens = phrase.split(" ");
 let correctGuesses = Array.apply(null, Array(tokens.length - 1)).map(function () {});
@@ -89,18 +89,22 @@ function draw() {
   
   
   var x = 50;
-  var y = windowHeight/2 - 350
   var x2 = 120;
+  var y = windowHeight/2 - 350
   var y2 = windowHeight/2 - 350
   
   var index = 0;
   for (var i = 0; i < tokens.length/3-5; i ++) {
     stroke(0);
     fill(0);
-    textSize(16);
+    textSize(32);
     textAlign(CENTER, CENTER);
-    text(correctGuesses[index], x + ((x2-x)/2)-6, y - 15);
-    line(x, y, x2-60, y2);
+    text(correctGuesses[index], x + 5, y - 15);
+    //text(tokens[index], x + 5, y - 15);
+    if (tokens[index] != '') {
+      line(x, y, x2-60, y2);
+    }
+    
     x += 25;
     x2+= 25;
     index++;
@@ -112,9 +116,12 @@ function draw() {
   y += 200
   y2 += 200
   
-  for (var j = 0; j < tokens.length/3 + 5 - 3; j ++) {
-    text(correctGuesses[index], x + ((x2-x)/2)-6, y - 15);
-    line(x, y, x2-60, y2);
+  for (var j = 0; j < tokens.length/3-2+5; j ++) {
+    text(correctGuesses[index], x + 5, y - 15);
+    //text(tokens[index], x + 5, y - 15);
+    if (tokens[index] != '') {
+      line(x, y, x2-60, y2);
+    }
     x += 25;
     x2+= 25;
     index++;
@@ -125,9 +132,12 @@ function draw() {
   y += 200
   y2 += 200
   
-  for (var k = 0; k < tokens.length/3 + 3; k ++) {
-    text(correctGuesses[index], x + ((x2-x)/2)-6, y - 15);
-    line(x, y, x2-60, y2);
+  for (var k = 0; k < tokens.length/3+2; k ++) {
+    text(correctGuesses[index], x + 5, y - 15);
+    //text(tokens[index], x + 5, y - 15);
+    if (tokens[index] != '') {
+      line(x, y, x2-60, y2);
+    }
     x += 25;
     x2+= 25;
     index++;
